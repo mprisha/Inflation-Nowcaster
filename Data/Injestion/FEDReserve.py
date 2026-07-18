@@ -32,10 +32,11 @@ for fred_code, nickname in series_id.items():
         print(f'Error fetching data for {fred_code} - observations: {response.status_code}')
 
 
-database = psycopg2.connect(
+database = psycopg2.connect (
     dbname = 'InflationProject',
     user = 'postgres',
-    host = 'localhost'
+    host = 'localhost',
+    password = os.getenv('DB_PASSWORD')
 )
 
 
